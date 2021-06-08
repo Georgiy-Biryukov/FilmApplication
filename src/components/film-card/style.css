@@ -1,0 +1,24 @@
+.filmCard {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.fav-icon {
+  width: 30px;
+}
+
+.img_info {
+  width: 210px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img_text {
+  width: 70%;
+}
+
+.img-fav {
+  width: 30%;
+}
