@@ -1,9 +1,19 @@
 import React from 'react'
 import "../header/header.css"
 import {Link} from "react-router-dom";
+import { FETCH_FILMS } from '../../store/actions/actions';
+import { useDispatch } from 'react-redux';
 
 
 function Header() {
+
+  const dispatch = useDispatch()
+    
+  const handleClick = () => {
+      dispatch({
+          type: FETCH_FILMS 
+        })
+  }
     return (
       <header className="header">
           <div className="nav-bar">
@@ -11,7 +21,7 @@ function Header() {
             <li className="nav-bar-item">
               <Link to="/About">About</Link>
             </li>
-            <li className="nav-bar-item">
+            <li className="nav-bar-item" onClick={handleClick}>
               <Link to="/Films">Films</Link>
             </li>
             <li className="nav-bar-item">

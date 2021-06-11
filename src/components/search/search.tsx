@@ -6,7 +6,6 @@ import { searchFilm } from '../../store/actions/actions'
 import "./style.css"
 
 
-
 const Search= () =>{
 const[value,setValue]=useState("")
 

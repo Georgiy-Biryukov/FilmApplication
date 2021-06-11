@@ -54,7 +54,7 @@ const TransitionsModal =({data,open,handleClose}:any)=> {
                 {data.name && <p>name : {data.name}</p>}
                 {data.language &&  <p>language : { data.language}</p>}
                 {data.genres &&  <p>genres : { data.genres.toString()}</p>}
-                {data.rating.average && <p>rate : {data.rating.average}</p>}
+                {data && data.rating && data.rating.average && <p>rate : {data.rating.average}</p>}
             </div>
           </div>
         </Fade>

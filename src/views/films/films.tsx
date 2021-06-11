@@ -8,8 +8,8 @@ import { RootState } from '../../store/store'
 import FilmCard from '../../components/film-card/film-card';
 import Search from '../../components/search/search';
 import ControlledOpenSelect from '../../components/select/select';
-import "./style.css"
 import NotFound from '../notFound/notFound';
+import "./style.css"
 
 const Films:React.FC = () => {
   const dispatch = useDispatch()
@@ -19,9 +19,8 @@ const Films:React.FC = () => {
     addFilmsReducer:{
       films,
       loading,
-      favorite
      }
-    }:RootState)=>({films,loading,favorite})
+    }:RootState)=>({films,loading})
   );
   
   useEffect(() => {
@@ -45,15 +44,17 @@ const Films:React.FC = () => {
         <Search/>
         <ControlledOpenSelect/>
       <div className="film-cards">
-        {loading ? <CircularProgress disableShrink /> : renderCards()}
+        {loading ? (<CircularProgress disableShrink />
+        ) : (
+        renderCards())
+        }
       </div>
-      {films.length ? (
+      {!!films.length && !loading && (
         <div className="pagination-box">
           <Pagination count={10} color="primary" onChange={selectPageHandler} className="pag"/>
         </div>
-      ) : (
-        <NotFound/>
-      )}
+      )} 
+      {!films.length && !loading && <NotFound/>}
     </div>
   )
 }

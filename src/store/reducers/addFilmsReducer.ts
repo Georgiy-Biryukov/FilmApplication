@@ -4,6 +4,7 @@ import { IFilms } from "./type";
 
 const initialState:IFilms = {
     loading: false,
+    error: false,
     films:[],
     allFilms:[],
     query:"",
@@ -24,6 +25,7 @@ export function addFilmsReducer(state = initialState, action:IAction) {
         ...state,
         films: data,
         allFilms:action.payload,
+        error: false,
       };
       
       case "SEARCH FILMS" :
@@ -48,8 +50,6 @@ export function addFilmsReducer(state = initialState, action:IAction) {
         const newData = state.favorite.filter((el:any)=>{
           return el.id !== action.payload.id
         })
-        console.log("payload:", action.payload)
-        console.log(newData);
       return {
         ...state,
         favorite: newData,
@@ -72,7 +72,13 @@ export function addFilmsReducer(state = initialState, action:IAction) {
         ...state,
         loading: action.payload,
       };
-    
+
+      case "CHANGE ERROR" :
+        return {
+          ...state,
+          error: action.payload,
+        };
+      
       default: return state
 
   }

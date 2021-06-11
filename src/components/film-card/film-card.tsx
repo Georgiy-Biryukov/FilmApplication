@@ -11,9 +11,7 @@ import "./style.css"
 const FilmCard = ({data}:any)=> {
     const [open, setOpen] = React.useState(false);
     const [favoriteFilm, setFavoriteFilm] = useState<boolean>(false)
-    console.log(favoriteFilm)
-
-
+    
     useEffect(() => {
         setFavoriteFilm(data.favorite)
     }, [])
@@ -31,15 +29,15 @@ const FilmCard = ({data}:any)=> {
     const handleClick = ()=>{
         setFavoriteFilm(!favoriteFilm)
        
-
     if(favoriteFilm) {
         dispatch(deleteFavoriteFilms(data))
     }else{
         dispatch(addFavoriteFilms(data))
     }
 }
+
     return (
-        <div className="filmCard" >
+        <div className="filmCard" data-testid="filmCard">
             <div className="film-image ">
                 <div className="card-image"  onClick={handleOpen}>
                     <img alt="img" src={data.image && data.image.medium ? data.image.medium : "" } />
@@ -49,7 +47,8 @@ const FilmCard = ({data}:any)=> {
                         <p>{data.name}</p>
                     </div>
                     <div className="img-fav">
-                        <img alt="favorite" src={ favoriteFilm === true  ?  heartRose : heart } className="fav-icon" onClick={handleClick} />
+                        <img alt="favorite" src={ favoriteFilm === true  ?  
+                            heartRose : heart } className="fav-icon" onClick={handleClick} />
                     </div>
                 </div>
             </div>

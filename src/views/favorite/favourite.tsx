@@ -9,7 +9,7 @@ function Favourite() {
     })
 
     return (
-        <div >
+        <div className="film-cards">
             {favorite && favorite.map((el: any) => {
                return <FilmCard data={el} key={el.id}/>
             })}

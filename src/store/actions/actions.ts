@@ -8,6 +8,7 @@ export const CHANGE_CLICKED = "CHANGE CLICKED"
 export const ADD_FILMS_GENRES = "ADD FILMS GENRES"
 export const CHANGE_FAV_FILM = "CHANGE FAV FILM"
 export const SET_LOADING = "SET LOADING"
+export const CHANGE_ERROR = "CHANGE ERROR"
 
 export const addFilms = (films: any) => {
     return {
@@ -15,7 +16,7 @@ export const addFilms = (films: any) => {
       payload: films,
     };
   };
-
+  
 export const fetchFilms = (page: number) => {
     return {
       type: FETCH_FILMS,
@@ -64,6 +65,16 @@ export const setLoading = (value: boolean) => {
     payload: value,
   };
 };
+
+export const changeError = (value: boolean) => {
+  return {
+    type: CHANGE_ERROR,
+    payload: value,
+  };
+};
+
+
+
 
 
 

@@ -1,13 +1,15 @@
-import { Button } from '@material-ui/core'
+
 import React from 'react'
+import { Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
+
 import goblin from "../../assets/icons/goblin.jpeg"
 import { FETCH_FILMS } from '../../store/actions/actions'
 import "./style.css"
 
 const NotFound = () => {
     const dispatch = useDispatch()
-
+    
     const handleClick = () => {
         dispatch({
             type: FETCH_FILMS 

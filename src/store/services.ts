@@ -8,7 +8,7 @@ const getFilms = async (page:number = 1)=>{
             return {...el,favorite:false}
         });
         
-    }catch(error){
+    } catch(error){
         return error
     }
 }
@@ -16,10 +16,16 @@ const searchFilm = async (query:string)=>{
     try{
         const responce = await api.searchFilm(query)
         const data = await responce.json()    
-        return data.map((el:any) => {
+        const dataArr = data.map((el:any) => {
             return {...el.show}
         })
-    }catch(error){
+        if(dataArr.length === 0){
+           return data
+        }else{
+            return dataArr
+        }
+
+    } catch(error){
         return error
     }
 }
