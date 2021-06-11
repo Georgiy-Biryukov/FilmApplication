@@ -1,0 +1,20 @@
+.film-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.pag {
+  padding: 20px;
+}
+
+.pagination-box {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}

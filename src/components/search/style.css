@@ -1,0 +1,10 @@
+.input-box {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.input-search {
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
